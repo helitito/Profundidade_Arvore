@@ -1,0 +1,22 @@
+#A explicação do Raciocinio está na ReadME!
+
+class Node:
+    def __init__(self, valor):
+        self.valor = valor
+        self.esquerda = None
+        self.direita = None
+
+def profundidade_pre_ordem(raiz, profundidade=0):
+    if raiz is None:
+        return profundidade
+    return max(profundidade_pre_ordem(raiz.esquerda, profundidade + 1), profundidade_pre_ordem(raiz.direita, profundidade + 1))
+
+def profundidade_em_ordem(raiz, profundidade=0):
+    if raiz is None:
+        return profundidade
+    return max(profundidade_em_ordem(raiz.esquerda, profundidade + 1), profundidade_em_ordem(raiz.direita, profundidade + 1))
+
+def profundidade_pos_ordem(raiz, profundidade=0):
+    if raiz is None:
+        return profundidade
+    return max(profundidade_pos_ordem(raiz.esquerda, profundidade + 1), profundidade_pos_ordem(raiz.direita, profundidade + 1))
